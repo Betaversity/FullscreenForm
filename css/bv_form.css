@@ -5,3 +5,12 @@
 .fs-message-error{
 	color: white;
 }
+
+.dropzone{
+	background: transparent;
+	border: none;
+}
+
+.fs-fields textarea{
+	border: none;
+}

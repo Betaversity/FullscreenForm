@@ -123,7 +123,7 @@
 			this.ctrlNav = createElement( 'nav', { cName : 'fs-nav-dots', appendTo : this.ctrls } );
 			var dots = '';
 			for( var i = 0; i < this.fieldsCount; ++i ) {
-				dots += i === this.current ? '<button class="fs-dot-current"></button>' : '<button disabled></button>';
+				dots += i === this.current ? '<button id="q' + (i+1) + '" class="fs-dot-current"></button>' : '<button disabled></button>';
 			}
 			this.ctrlNav.innerHTML = dots;
 			this._showCtrl( this.ctrlNav );

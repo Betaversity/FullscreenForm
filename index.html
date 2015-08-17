@@ -14,8 +14,9 @@
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
 		<link rel="stylesheet" type="text/css" href="css/cs-select.css" />
 		<link rel="stylesheet" type="text/css" href="css/cs-skin-boxes.css" />
-		<link rel="stylesheet" type="text/css" href="css/bv_form.css">
 		<link rel="stylesheet" type="text/css" href="css/dropzone.css">
+		<link rel="stylesheet" type="text/css" href="css/bv_form.css">
+
 		<script src="js/modernizr.custom.js"></script>
 	</head>
 	<body>
@@ -62,7 +63,7 @@
 						</li>
 						<li>
 							<label class="fs-field-label fs-anim-upper" for="q4">Show us a picture of what you made. How did it turn out?</label>
-							<input class="fs-anim-lower" id="q1" name="q1" type="file" placeholder="Name" required/>
+							<form action="/file/post" class="bv-dropzone dropzone fs-anim-lower"></form>
 						</li>
 						<li>
 							<label class="fs-field-label fs-anim-upper" for="q4">How did you test this prototype</label>
@@ -86,7 +87,7 @@
 						</li>
 						<li>
 							<label class="fs-field-label fs-anim-upper" for="q4">How did it end up? Do you have a picture of video of the final product in action?</label>
-							<input class="fs-anim-lower" id="q1" name="q1" type="file" placeholder="Name" required/>
+							<form action="/file/post" class="bv-dropzone dropzone fs-anim-lower"></form>
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" data-info="We'll make sure to use it all over">Enter 5 tags to help us connect you with the best job option</label>
@@ -128,7 +129,7 @@
 						</li>
 						<li>
 							<label class="fs-field-label fs-anim-upper" for="q4">We know you've worked hard on your resume - upload your resume too!</label>
-							<input class="fs-anim-lower" id="q1" name="q1" type="file" placeholder="Name" required/>
+							<form action="/file/post" class="bv-dropzone dropzone fs-anim-lower"></form>
 						</li>
 						<li>
 							<label class="fs-field-label fs-anim-upper" for="q1">Choose a username and send this project to other companies</label>
@@ -136,7 +137,7 @@
 						</li>
 						<li>
 							<label class="fs-field-label fs-anim-upper" for="q4">Upload a profile picture</label>
-							<input class="fs-anim-lower" id="q1" name="q1" type="file" placeholder="Name" required/>
+							<form action="/file/post" class="bv-dropzone dropzone fs-anim-lower"></form>
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" for="q3" data-info="This will help us know what kind of service you need">We found these jobs based on your project. Choose the job you'd like to apply for</label>
