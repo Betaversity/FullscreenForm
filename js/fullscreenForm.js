@@ -79,7 +79,7 @@
 	 */
 	FForm.prototype._init = function() {
 		// the form element
-		this.formEl = this.el.querySelector( 'form' );
+		this.formEl = this.el.querySelector( 'div#myform' );
 
 		// list of fields
 		this.fieldsList = this.formEl.querySelector( 'ol.fs-fields' );

@@ -23,8 +23,9 @@
 			<div class="fs-form-wrap" id="fs-form-wrap">
 				<div class="fs-title">
 					<h1>Apply to SpaceX</h1>
+					<div action="/upload-target" class="dropzone"></div>
 				</div>
-				<form id="myform" class="fs-form fs-form-full" autocomplete="off">
+				<div id="myform" class="fs-form fs-form-full" autocomplete="off">
 					<ol class="fs-fields">
 						<li>
 							<label class="fs-field-label fs-anim-upper" for="q1">What's the name of your project?</label>
@@ -40,8 +41,9 @@
 						</li>
 						<li>
 							<label class="fs-field-label fs-anim-upper" for="q4">Sounds like a problem. Do you have any pics or video that shows that?</label>
-							<input class="fs-anim-lower" id="q1" name="q1" type="file" placeholder="Name" required/>
-						</li>
+							<!-- <input class="fs-anim-lower bv-dropzone" id="q1" name="q1" type="file" placeholder="Name" required/> -->
+						<div action="/upload-target" class="bv-dropzone dropzone"></div>
+ 						</li>
 						<li>
 							<label class="fs-field-label fs-anim-upper" for="q4">Nice - How did you learn about this problem?</label>
 							<textarea class="fs-anim-lower" id="q3" name="q4" placeholder="I found out..."></textarea>
@@ -149,7 +151,7 @@
 						</li>
 					</ol><!-- /fs-fields -->
 					<button class="fs-submit" type="submit">Send answers</button>
-				</form><!-- /fs-form -->
+				</div><!-- /fs-form -->
 			</div><!-- /fs-form-wrap -->
 
 			<!-- Related demos -->
@@ -166,9 +168,12 @@
 			</div>
 
 		</div><!-- /container -->
+		<script src='http://code.jquery.com/jquery-2.1.4.min.js'></script>
+		<script src='js/dropzone.js'></script>
 		<script src="js/classie.js"></script>
 		<script src="js/selectFx.js"></script>
 		<script src="js/fullscreenForm.js"></script>
+		
 		<script>
 			(function() {
 				var formWrap = document.getElementById( 'fs-form-wrap' );
@@ -188,6 +193,11 @@
 					}
 				} );
 			})();
+
+			jQuery(document).ready(function(){
+				console.log("testing");
+				jQuery(".bv-dropzone").dropzone({ url: "/file/post" });
+			})
 		</script>
 	</body>
 </html>
