@@ -376,8 +376,60 @@
 	 */
 	FForm.prototype._updateNav = function() {
 		if( this.options.ctrlNavDots ) {
-			classie.remove( this.ctrlNav.querySelector( 'button.fs-dot-current' ), 'fs-dot-current' );
+
+			function checkRemoveClassie(classieName){
+				if( this.ctrlNav.querySelector(classieName)){
+					classie.remove( this.ctrlNav.querySelector( 'button.' + classieName ), classieName );
+				}
+			}
+			//remove the existing classes
+			jQuery('.fs-dot-current-100').removeClass('fs-dot-current-100');
+			jQuery('.fs-dot-current-50').removeClass('fs-dot-current-50');
+			jQuery('.fs-dot-current-40').removeClass('fs-dot-current-40');
+			jQuery('.fs-dot-current-20').removeClass('fs-dot-current-20');
+			jQuery('.fs-dot-current-10').removeClass('fs-dot-current-10');
+			jQuery('.fs-dot-current').removeClass('fs-dot-current');
+
+
 			classie.add( this.ctrlNavDots[ this.current ], 'fs-dot-current' );
+			classie.add( this.ctrlNavDots[ this.current ], 'fs-dot-current-100' );
+			//conditional classes added based on form position
+			switch(this.current){
+				case 0:
+				//first element on the form
+					classie.add( this.ctrlNavDots[ this.current + 1 ], 'fs-dot-current-50' );
+					classie.add( this.ctrlNavDots[ this.current + 2 ], 'fs-dot-current-40' );
+					classie.add( this.ctrlNavDots[ this.current + 3 ], 'fs-dot-current-20' );
+					classie.add( this.ctrlNavDots[ this.current + 4 ], 'fs-dot-current-10' );
+				break;
+				case 1:
+					classie.add( this.ctrlNavDots[ this.current - 1 ], 'fs-dot-current-50' );
+					classie.add( this.ctrlNavDots[ this.current + 1 ], 'fs-dot-current-50' );
+					classie.add( this.ctrlNavDots[ this.current + 2 ], 'fs-dot-current-20' );
+					classie.add( this.ctrlNavDots[ this.current + 3 ], 'fs-dot-current-10' );
+				break;
+				default:
+					classie.add( this.ctrlNavDots[ this.current - 2 ], 'fs-dot-current-20' );
+					classie.add( this.ctrlNavDots[ this.current - 1 ], 'fs-dot-current-50' );
+					classie.add( this.ctrlNavDots[ this.current + 1 ], 'fs-dot-current-50' );
+					classie.add( this.ctrlNavDots[ this.current + 2 ], 'fs-dot-current-20' );
+				break;
+			}
+
+			//change position of nav based on the current number
+			switch(this.current){
+				case 0:
+				case 1:
+				case 2:
+					jQuery('nav.fs-nav-dots').css('top','-0px');
+					jQuery('nav.fs-nav-dots').css('height','160px');
+				break;
+				default:
+					jQuery('nav.fs-nav-dots').css('top','-' +  ((this.current * 32) - 64) + "px");
+					jQuery('nav.fs-nav-dots').css('height', (96 + (this.current * 32) + "px"));
+				break;
+			}
+			console.log(this.current);
 			this.ctrlNavDots[ this.current ].disabled = false;
 		}
 	}

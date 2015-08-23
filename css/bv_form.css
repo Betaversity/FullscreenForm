@@ -14,3 +14,43 @@
 .fs-fields textarea{
 	border: none;
 }
+
+.fs-fields input{
+	color: white;
+}
+
+.fs-numbers{
+	visibility: hidden !important;
+}
+
+.fs-nav-dots{
+	top:0px;
+	-webkit-transform:none;
+	transform:none;
+	overflow: hidden;
+	height: 160px;
+}
+
+.button.fs-dot-current::before{
+	color:white;
+}
+
+button.fs-dot-current-100::before{
+	opacity: 1;
+}
+
+button.fs-dot-current-50::before{
+	opacity: 0.5;
+}
+
+button.fs-dot-current-40::before{
+	opacity: 0.4;
+}
+
+button.fs-dot-current-20::before{
+	opacity: 0.2;
+}
+
+button.fs-dot-current-10::before{
+	opacity: 0.1;
+}
