@@ -169,6 +169,9 @@
 		// show next field
 		this.ctrlContinue.addEventListener( 'click', function() {
 			self._nextField(); 
+
+			//put the cookie data on the screen
+			self._pullDataFromCookie();
 		} );
 
 		// navigation dots
@@ -219,6 +222,9 @@
 				}
 			}
 		} );
+
+		//pull info for the first question from the cookie (if it's avail) to the screen
+		self._pullDataFromCookie();
 	};
 
 	/**
@@ -230,6 +236,9 @@
 			return false;
 		}
 		this.isAnimating = true;
+
+		//save onscreen data to a cookie
+		this._saveDataToCookie();
 
 		// check if on last step
 		this.isLastStep = this.current === this.fieldsCount - 1 && backto === undefined ? true : false;
@@ -325,6 +334,8 @@
 		else {
 			onEndAnimationFn();
 		}
+
+		
 	}
 
 	/**
@@ -517,6 +528,33 @@
 	// clears/hides the current error message
 	FForm.prototype._clearError = function() {
 		this._hideCtrl( this.msgError );
+	}
+
+	//save the info that's currently on the screen to a cookie
+	FForm.prototype._saveDataToCookie = function(){
+		// saveValue = [];
+		var activeControls = jQuery('.fs-current .fs-anim-lower'); //get the item that's currently on screen 
+		// for(x=0;x < activeControls.length;x++){
+			var saveValue = jQuery(activeControls).val();
+		// }
+		var cookieKey = jQuery('.fs-current .fs-anim-lower').attr('id');
+		console.log(cookieKey);
+		var saveKey = cookieKey.substr(1); //the numeric value of the question. Will be used in the server
+		var pushData = {
+			'questionNumber' : saveKey,
+			'responseValue' : saveValue
+		}
+		Cookies.set(cookieKey, pushData);
+
+	}
+
+	//put data from the cookie (if there is any) on the screen
+	FForm.prototype._pullDataFromCookie = function(){
+		var cookieKey = jQuery(".fs-current .fs-anim-lower").attr('id');
+		var cookieData = Cookies.getJSON(cookieKey);
+		// var parsedCookieData = JSON.parse(cookieData);
+		console.log(cookieData);
+		jQuery(".fs-current .fs-anim-lower").val(cookieData.responseValue);
 	}
 
 	// add to global namespace
