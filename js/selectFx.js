@@ -135,7 +135,7 @@
 			}
 		} );
 
-		var opts_el = '<div class="cs-options"><ul>' + options + '</ul></div>';
+		var opts_el = '<div class="cs-options"><ul class="bv-fullscreen-box-container">' + options + '</ul></div>';
 		this.selEl = document.createElement( 'div' );
 		this.selEl.className = this.el.className;
 		this.selEl.tabIndex = this.el.tabIndex;
@@ -264,6 +264,8 @@
 	 * change option - the new value is set
 	 */
 	SelectFx.prototype._changeOption = function() {
+
+		alert("changing...");
 		// if pre selected current (if we navigate with the keyboard)...
 		if( typeof this.preSelCurrent != 'undefined' && this.preSelCurrent !== -1 ) {
 			this.current = this.preSelCurrent;
