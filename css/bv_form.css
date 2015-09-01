@@ -54,3 +54,27 @@ button.fs-dot-current-20::before{
 button.fs-dot-current-10::before{
 	opacity: 0.1;
 }
+
+.cs-skin-boxes > span{
+	display: inline-block;
+}
+
+.fs-form div.cs-select.cs-skin-boxes{
+	display: inline;
+}
+
+.bv-tag-selection-display span::after{
+	content : '\2716';
+	right: 1em;
+}
+
+button.btn-mobileSelect-gen{
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	border: 2px solid white;
+	padding: 20px 30px;
+	font-size: 18px;
+	color: white;
+	border-radius: 20px;
+}

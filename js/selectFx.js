@@ -8,6 +8,10 @@
  * Copyright 2014, Codrops
  * http://www.codrops.com
  */
+ var closeScreenHold = false;
+ 
+ var origSelectData = "<select id='q16' name='q16' class='cs-select cs-skin-boxes fs-anim-lower'><optgroup label = 'Miscellaneous'><option class='bv-tag-tag' value = 'Automotive' data-class='color-f3e395'>Automotive</option><option class='bv-tag-tag' value = 'Microfluidics' data-class='color-f3e395'>Microfluidics</option><option class='bv-tag-tag' value = 'Hydraulic Systems' data-class='color-f3e395'>Hydraulic Systems</option><option class='bv-tag-tag' value = 'Robotics' data-class='color-f3e395'>Robotics</option><option class='bv-tag-tag' value = 'Pharmaceuticals' data-class='color-f3e395'>Pharmaceuticals</option><option class='bv-tag-tag' value = 'Virtual Reality' data-class='color-f3e395'>Virtual Reality</option><option class='bv-tag-tag' value = 'Rendering' data-class='color-f3e395'>Rendering</option><option class='bv-tag-tag' value = 'Laser' data-class='color-f3e395'>Laser</option><option class='bv-tag-tag' value = 'Batteries' data-class='color-f3e395'>Batteries</option><option class='bv-tag-tag' value = 'Engine' data-class='color-f3e395'>Engine</option><option class='bv-tag-tag' value = 'Prosthetic' data-class='color-f3e395'>Prosthetic</option></optgroup><optgroup label = 'Energy'><option class='bv-tag-tag' value = 'Solar PV' data-class='color-f3e395'>Solar PV</option><option class='bv-tag-tag' value = 'Wind' data-class='color-f3e395'>Wind</option><option class='bv-tag-tag' value = 'Biomass' data-class='color-f3e395'>Biomass</option><option class='bv-tag-tag' value = 'Hydro' data-class='color-f3e395'>Hydro</option><option class='bv-tag-tag' value = 'Marine Energy' data-class='color-f3e395'>Marine Energy</option><option class='bv-tag-tag' value = 'Solar Thermal' data-class='color-f3e395'>Solar Thermal</option><option class='bv-tag-tag' value = 'Geothermal' data-class='color-f3e395'>Geothermal</option></optgroup><optgroup label = 'Certifications'><option class='bv-tag-tag' value = 'PE' data-class='color-f3e395'>PE</option><option class='bv-tag-tag' value = 'AIA' data-class='color-f3e395'>AIA</option><option class='bv-tag-tag' value = 'Microsoft C++' data-class='color-f3e395'>Microsoft C++</option><option class='bv-tag-tag' value = 'CEM' data-class='color-f3e395'>CEM</option><option class='bv-tag-tag' value = 'Six Sigma' data-class='color-f3e395'>Six Sigma</option><option class='bv-tag-tag' value = 'PEM' data-class='color-f3e395'>PEM</option><option class='bv-tag-tag' value = 'FMEA' data-class='color-f3e395'>FMEA</option><option class='bv-tag-tag' value = 'SPC' data-class='color-f3e395'>SPC</option></optgroup><optgroup label = 'Optics'><option class='bv-tag-tag' value = 'Infrared Imaging' data-class='color-f3e395'>Infrared Imaging</option><option class='bv-tag-tag' value = 'optical systems' data-class='color-f3e395'>optical systems</option><option class='bv-tag-tag' value = 'fiber optics' data-class='color-f3e395'>fiber optics</option><option class='bv-tag-tag' value = 'Photonics' data-class='color-f3e395'>Photonics</option><option class='bv-tag-tag' value = 'Photovoltaic' data-class='color-f3e395'>Photovoltaic</option><option class='bv-tag-tag' value = 'Microscope' data-class='color-f3e395'>Microscope</option></optgroup><optgroup label = 'Hardware and Manufacturing'><option class='bv-tag-tag' value = 'Cnc milling' data-class='color-f3e395'>Cnc milling</option><option class='bv-tag-tag' value = 'Tooling' data-class='color-f3e395'>Tooling	</option><option class='bv-tag-tag' value = 'Soldering' data-class='color-f3e395'>Soldering</option><option class='bv-tag-tag' value = 'Welding	' data-class='color-f3e395'>Welding</option><option class='bv-tag-tag' value = 'Assembly' data-class='color-f3e395'>Assembly</option><option class='bv-tag-tag' value = 'Casting' data-class='color-f3e395'>Casting</option><option class='bv-tag-tag' value = 'Post-processing	' data-class='color-f3e395'>Post-processing</option><option class='bv-tag-tag' value = 'Small Batch Manufacturing' data-class='color-f3e395'>Small Batch Manufacturing</option><option class='bv-tag-tag' value = 'Laser Cutting' data-class='color-f3e395'>Laser Cutting</option><option class='bv-tag-tag' value = 'Polymers' data-class='color-f3e395'>Polymers</option><option class='bv-tag-tag' value = 'Thermoforming' data-class='color-f3e395'>Thermoforming</option><option class='bv-tag-tag' value = 'Quality assurance' data-class='color-f3e395'>Quality assurance</option><option class='bv-tag-tag' value = 'RF Electronics' data-class='color-f3e395'>RF Electronics	</option><option class='bv-tag-tag' value = 'Internet of Things' data-class='color-f3e395'>Internet of Things</option><option class='bv-tag-tag' value = 'Airplane' data-class='color-f3e395'>Airplane</option><option class='bv-tag-tag' value = 'Drone' data-class='color-f3e395'>Drone</option><option class='bv-tag-tag' value = '3D printing' data-class='color-f3e395'>3D printing	</option></optgroup><optgroup label = 'Electronics'><option class='bv-tag-tag' value = '	Semiconductor	' data-class='color-f3e395'>	Semiconductor	</option><option class='bv-tag-tag' value = '	Electroluminescence	' data-class='color-f3e395'>	Electroluminescence	</option><option class='bv-tag-tag' value = '	Arduino	' data-class='color-f3e395'>	Arduino	</option><option class='bv-tag-tag' value = '	Raspberry Pi	' data-class='color-f3e395'>	Raspberry Pi	</option><option class='bv-tag-tag' value = '	Launchpad	' data-class='color-f3e395'>	Launchpad	</option><option class='bv-tag-tag' value = '	Microcontroller	' data-class='color-f3e395'>	Microcontroller	</option><option class='bv-tag-tag' value = '	Ethernet IO	' data-class='color-f3e395'>	Ethernet IO	</option><option class='bv-tag-tag' value = '	LED	' data-class='color-f3e395'>	LED	</option><option class='bv-tag-tag' value = '	LED Chips	' data-class='color-f3e395'>	LED Chips	</option><option class='bv-tag-tag' value = '	Networking Equipment	' data-class='color-f3e395'>	Networking Equipment	</option><option class='bv-tag-tag' value = '	PCD Board Design	' data-class='color-f3e395'>	PCD Board Design	</option><option class='bv-tag-tag' value = '	Signal Processing	' data-class='color-f3e395'>	Signal Processing	</option></optgroup><optgroup label = 'Software'><option class='bv-tag-tag' value = '	Labview	' data-class='color-f3e395'>	Labview	</option><option class='bv-tag-tag' value = '	Teststand	' data-class='color-f3e395'>	Teststand	</option><option class='bv-tag-tag' value = '	Matlab	' data-class='color-f3e395'>	Matlab	</option><option class='bv-tag-tag' value = '	Zemax	' data-class='color-f3e395'>	Zemax	</option><option class='bv-tag-tag' value = '	VMWare	' data-class='color-f3e395'>	VMWare	</option><option class='bv-tag-tag' value = '	XenApp	' data-class='color-f3e395'>	XenApp	</option><option class='bv-tag-tag' value = '	XenDesktop	' data-class='color-f3e395'>	XenDesktop	</option><option class='bv-tag-tag' value = '	NetApp	' data-class='color-f3e395'>	NetApp	</option><option class='bv-tag-tag' value = '	Linux	' data-class='color-f3e395'>	Linux	</option><option class='bv-tag-tag' value = '	Oracle	' data-class='color-f3e395'>	Oracle	</option><option class='bv-tag-tag' value = '	Agile	' data-class='color-f3e395'>	Agile	</option><option class='bv-tag-tag' value = '	JMP software	' data-class='color-f3e395'>	JMP software	</option></optgroup><optgroup label = 'Programming'><option class='bv-tag-tag' value = '	PHP	' data-class='color-f3e395'>	PHP	</option><option class='bv-tag-tag' value = '	CSS	' data-class='color-f3e395'>	CSS	</option><option class='bv-tag-tag' value = '	CSS+	' data-class='color-f3e395'>	CSS+	</option><option class='bv-tag-tag' value = '	HTML	' data-class='color-f3e395'>	HTML	</option><option class='bv-tag-tag' value = '	Java	' data-class='color-f3e395'>	Java	</option><option class='bv-tag-tag' value = '	Python	' data-class='color-f3e395'>	Python	</option><option class='bv-tag-tag' value = '	Ruby	' data-class='color-f3e395'>	Ruby	</option><option class='bv-tag-tag' value = '	Wolfram	' data-class='color-f3e395'>	Wolfram	</option><option class='bv-tag-tag' value = '	SQL	' data-class='color-f3e395'>	SQL	</option><option class='bv-tag-tag' value = '	CPU Architecture	' data-class='color-f3e395'>	CPU Architecture	</option><option class='bv-tag-tag' value = '	Data Structures	' data-class='color-f3e395'>	Data Structures	</option><option class='bv-tag-tag' value = '	Computer networking	' data-class='color-f3e395'>	Computer networking	</option></optgroup><optgroup label = 'Biomedical'><option class='bv-tag-tag' value = '	Anesthesia units	' data-class='color-f3e395'>	Anesthesia units	</option><option class='bv-tag-tag' value = '	surgical lasers	' data-class='color-f3e395'>	surgical lasers	</option><option class='bv-tag-tag' value = '	autotransfusion units	' data-class='color-f3e395'>	autotransfusion units	</option><option class='bv-tag-tag' value = '	ventilators	' data-class='color-f3e395'>	ventilators	</option><option class='bv-tag-tag' value = '	heart-lung bypass units	' data-class='color-f3e395'>	heart-lung bypass units	</option><option class='bv-tag-tag' value = '	diagnostic imaging	' data-class='color-f3e395'>	diagnostic imaging	</option><option class='bv-tag-tag' value = '	diagnostic ultrasound	' data-class='color-f3e395'>	diagnostic ultrasound	</option><option class='bv-tag-tag' value = '	hemodialysis units	' data-class='color-f3e395'>	hemodialysis units	</option><option class='bv-tag-tag' value = '	intro-aortic balloon pumps	' data-class='color-f3e395'>	intro-aortic balloon pumps	</option><option class='bv-tag-tag' value = '	cardiology management systems	' data-class='color-f3e395'>	cardiology management systems	</option><option class='bv-tag-tag' value = '	clinical data systems	' data-class='color-f3e395'>	clinical data systems	</option><option class='bv-tag-tag' value = '	Radiography	' data-class='color-f3e395'>	Radiography	</option><option class='bv-tag-tag' value = '	Ultrasonics	' data-class='color-f3e395'>	Ultrasonics	</option></optgroup><optgroup label = 'Design'><option class='bv-tag-tag' value = '	Adobe Photoshop	' data-class='color-f3e395'>	Adobe Photoshop	</option><option class='bv-tag-tag' value = '	Adobe Illustrator	' data-class='color-f3e395'>	Adobe Illustrator	</option><option class='bv-tag-tag' value = '	Adobe InDesign	' data-class='color-f3e395'>	Adobe InDesign	</option><option class='bv-tag-tag' value = '	Adobe After Effects	' data-class='color-f3e395'>	Adobe After Effects	</option><option class='bv-tag-tag' value = '	Adobe Premiere	' data-class='color-f3e395'>	Adobe Premiere	</option><option class='bv-tag-tag' value = '	CATIA V5	' data-class='color-f3e395'>	CATIA V5	</option><option class='bv-tag-tag' value = '	Alias	' data-class='color-f3e395'>	Alias	</option><option class='bv-tag-tag' value = '	Corel Draw	' data-class='color-f3e395'>	Corel Draw	</option><option class='bv-tag-tag' value = '	3DS Max	' data-class='color-f3e395'>	3DS Max	</option></optgroup><optgroup label = 'Planning'><option class='bv-tag-tag' value = '	Blueprint	' data-class='color-f3e395'>	Blueprint	</option><option class='bv-tag-tag' value = '	Technical Drawing	' data-class='color-f3e395'>	Technical Drawing	</option><option class='bv-tag-tag' value = '	Construction	' data-class='color-f3e395'>	Construction	</option></optgroup><optgroup label='Software'><option class='bv-tag-tag' value = '	Autodesk	' data-class='color-f3e395'>	Autodesk	</option><option class='bv-tag-tag' value = '	Inventor	' data-class='color-f3e395'>	Inventor	</option><option class='bv-tag-tag' value = '	Inroad	' data-class='color-f3e395'>	Inroad	</option><option class='bv-tag-tag' value = '	Microstation	' data-class='color-f3e395'>	Microstation	</option><option class='bv-tag-tag' value = '	Geopak	' data-class='color-f3e395'>	Geopak	</option><option class='bv-tag-tag' value = '	Solidworks	' data-class='color-f3e395'>	Solidworks	</option><option class='bv-tag-tag' value = '	AutoCAD	' data-class='color-f3e395'>	AutoCAD	</option><option class='bv-tag-tag' value = '	Sketchup	' data-class='color-f3e395'>	Sketchup	</option><option class='bv-tag-tag' value = '	CAD	' data-class='color-f3e395'>	CAD	</option></optgroup>";
+ var origOptionsData;
 ;( function( window ) {
 	
 	'use strict';
@@ -56,7 +60,10 @@
 		// when opening the select element, the default placeholder (if any) is shown
 		stickyPlaceholder : true,
 		// callback when changing the value
-		onChange : function( val ) { return false; }
+		onChange : function( val ) {
+
+			console.log(val);
+		}
 	}
 
 	/**
@@ -89,6 +96,10 @@
 
 		// init events
 		this._initEvents();
+
+		//get default option element data
+		origOptionsData = jQuery('.cs-options').last().html();
+
 	}
 
 	/**
@@ -152,7 +163,7 @@
 
 		// open/close select
 		this.selPlaceholder.addEventListener( 'click', function() {
-			self._toggleSelect();
+				self._toggleSelect();
 		} );
 
 		// clicking the options
@@ -165,12 +176,23 @@
 			} );
 		} );
 
+		//clikcing the optgroups
+		jQuery(".cs-optgroup").click(function(){
+			closeScreenHold = true;
+
+			var childOptions = jQuery(this).children("ul").children('li');
+			jQuery(".bv-fullscreen-box-container").empty();
+			for(var x=0;x<childOptions.length;x++){
+				jQuery(".bv-fullscreen-box-container").append(childOptions[x]);
+			}
+		})
+
 		// close the select element if the target it´s not the select element or one of its descendants..
 		document.addEventListener( 'click', function(ev) {
 			var target = ev.target;
 			if( self._isOpen() && target !== self.selEl && !hasParent( target, self.selEl ) ) {
 				self._toggleSelect();
-			}
+			} 
 		} );
 
 		// keyboard navigation events
@@ -242,14 +264,21 @@
 	 */
 	SelectFx.prototype._toggleSelect = function() {
 		// remove focus class if any..
+		// alert('togglingSelect');
 		this._removeFocus();
+
 		
 		if( this._isOpen() ) {
 			if( this.current !== -1 ) {
 				// update placeholder text
 				this.selPlaceholder.textContent = this.selOpts[ this.current ].textContent;
 			}
-			classie.remove( this.selEl, 'cs-active' );
+			if(closeScreenHold){
+				closeScreenHold = false;
+			}else{
+				classie.remove( this.selEl, 'cs-active' );
+			}
+			
 		}
 		else {
 			if( this.hasDefaultPlaceholder && this.options.stickyPlaceholder ) {
@@ -264,8 +293,6 @@
 	 * change option - the new value is set
 	 */
 	SelectFx.prototype._changeOption = function() {
-
-		alert("changing...");
 		// if pre selected current (if we navigate with the keyboard)...
 		if( typeof this.preSelCurrent != 'undefined' && this.preSelCurrent !== -1 ) {
 			this.current = this.preSelCurrent;
@@ -301,6 +328,13 @@
 
 		// callback
 		this.options.onChange( this.el.value );
+		alert(this.el.value);
+		if(jQuery('.bv-tag-selection-blank').length > 0){
+			modItem = jQuery('.bv-tag-selection-blank').last();
+			jQuery(modItem).removeClass("bv-tag-selection-blank").addClass('bv-tag-selection-selected');
+			jQuery(modItem).last().children('span').text();
+			jQuery('.cs-options').last().html(origOptionsData);
+		}
 	}
 
 	/**
